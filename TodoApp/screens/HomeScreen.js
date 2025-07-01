@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, FlatList, StyleSheet, TouchableOpacity, Button } from 'react-native';
+import { View, FlatList, StyleSheet, TouchableOpacity, Button, Text } from 'react-native';
 import TaskCard from '../components/TaskCard';
 import { getTasks, storeTasks } from '../utils/storage';
 import { useIsFocused } from '@react-navigation/native';
@@ -15,6 +15,7 @@ export default function HomeScreen({ navigation }) {
 
   const loadTasks = async () => {
     const saved = await getTasks();
+    console.log('Loaded tasks:', saved);
     setTasks(saved);
   };
 
@@ -28,6 +29,9 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+      {tasks.length === 0 && (
+        <Text style={styles.emptyText}>No tasks found. Try adding one!</Text>
+      )}
       <FlatList
         data={tasks}
         keyExtractor={(item) => item.id}
@@ -60,4 +64,10 @@ const styles = StyleSheet.create({
     padding: 16,
     elevation: 5,
   },
+  emptyText: {
+    textAlign: 'center',
+    marginVertical: 20,
+    fontSize: 16,
+    color: 'gray'
+  }
 });

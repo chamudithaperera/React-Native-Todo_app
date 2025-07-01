@@ -13,7 +13,6 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   useEffect(() => {
     const prepare = async () => {
-      // Simulate loading
       await new Promise((resolve) => setTimeout(resolve, 1000));
       await SplashScreen.hideAsync();
     };
@@ -23,8 +22,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: '📝 My Todo List' }} />
-        <Stack.Screen name="AddTodo" component={AddTodoScreen} options={{ title: '➕ Add New Todo' }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'My Todo List' }} />
+        <Stack.Screen name="AddTodo" component={AddTodoScreen} options={{ title: 'Add New Todo' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
