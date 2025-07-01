@@ -7,6 +7,9 @@ export default function TaskCard({ task, onToggle }) {
       <Text style={[styles.text, task.completed && styles.completed]}>
         {task.text}
       </Text>
+      <Text style={styles.meta}>
+        📁 {task.category} | ⚡ {task.priority}
+      </Text>
     </TouchableOpacity>
   );
 }
@@ -29,5 +32,10 @@ const styles = StyleSheet.create({
   completed: {
     textDecorationLine: 'line-through',
     color: 'gray',
+  },
+  meta: {
+    marginTop: 6,
+    fontSize: 13,
+    color: '#666',
   },
 });
