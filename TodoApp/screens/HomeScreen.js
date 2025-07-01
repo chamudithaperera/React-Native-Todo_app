@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, FlatList, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import TaskCard from '../components/TaskCard';
 import { getTasks, storeTasks } from '../utils/storage';
 import { useIsFocused } from '@react-navigation/native';
