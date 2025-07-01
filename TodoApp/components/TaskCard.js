@@ -7,9 +7,11 @@ export default function TaskCard({ task, onToggle }) {
       <Text style={[styles.text, task.completed && styles.completed]}>
         {task.text}
       </Text>
-      <Text style={styles.meta}>
-        📁 {task.category} | ⚡ {task.priority}
-      </Text>
+      {(task.category || task.priority) && (
+        <Text style={styles.meta}>
+          📁 {task.category || 'Uncategorized'} | ⚡ {task.priority || 'Medium'}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 }

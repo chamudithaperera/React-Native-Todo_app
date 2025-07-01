@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, FlatList, StyleSheet, TouchableOpacity, Button } from 'react-native';
 import TaskCard from '../components/TaskCard';
 import { getTasks, storeTasks } from '../utils/storage';
 import { useIsFocused } from '@react-navigation/native';
@@ -41,6 +41,10 @@ export default function HomeScreen({ navigation }) {
       >
         <Ionicons name="add" size={28} color="#fff" />
       </TouchableOpacity>
+      <Button title="Clear All Tasks" color="red" onPress={async () => {
+        await storeTasks([]);
+        setTasks([]);
+      }} />
     </View>
   );
 }
